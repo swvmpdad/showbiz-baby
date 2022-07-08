@@ -1,4 +1,4 @@
-var movieListEl = document.getElementById("#movie-titles");
+var movieListEl = document.getElementById("dropdown-menu");
 var ytTrailerEl = "";
 var metaCriticEl = "";
 var fandangoEl = "";
@@ -22,6 +22,7 @@ var displayMovies = function(movies) {
     console.log(movies);
     for (var i = 0; i < movies.results.length; i++) {
         console.log(movies.results[i].original_title);
+        var movieOptionEl = document.getElementById("movie" + i).textContent = "'" + movies.results[i].original_title + "'";
     }
 };
 

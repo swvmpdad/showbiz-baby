@@ -1,0 +1,8 @@
+- css framework (Bulma)
+- API keys
+    - fandango (??)
+    - Youtube (AIzaSyCSaF4JJUWWEQ-2uEHOdcLW4mVdu4LZtrQ)
+    - Meta Critic (k_sbsit9hk)
+    - IMDB (k_v2ym20vp)
+- HTML Layout
+- fetch functions

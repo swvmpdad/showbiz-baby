@@ -1,4 +1,5 @@
 var movieListEl = document.getElementById("dropdown-menu");
+var movieChoiceEl = document.getElementsByClassName("dropdown-item");
 var ytTrailerEl = "";
 var metaCriticEl = "";
 var fandangoEl = "";
@@ -12,18 +13,31 @@ var getmovieIntheater = function() {
         if (response.ok) {
             response.json().then(function(data) {
                 var movies = data;
-                displayMovies(movies);
+                movieList(movies);
             });
         }
     });
 };
 
-var displayMovies = function(movies) {
+var movieList = function(movies) {
     console.log(movies);
     for (var i = 0; i < movies.results.length; i++) {
         console.log(movies.results[i].original_title);
-        var movieOptionEl = document.getElementById("movie" + i).textContent = "'" + movies.results[i].original_title + "'";
+        document.getElementById("movie" + i).textContent = movies.results[i].original_title;
     }
 };
 
+var setClickableOptions = function () {
+    for (var i = 0; i < 20; i++) {
+        var listOption = document.getElementById("movie" + i);
+        document.getElementById("movie" + i).addEventListener("click", displayMovie(listOption));
+    }
+}
+var displayMovie = function(movie) {
+    console.log(movie);
+};
+
+// movieChoiceEl.addEventListener("click", displayMovie(this))
+
 getmovieIntheater();
+setClickableOptions();

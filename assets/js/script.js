@@ -1,4 +1,4 @@
-var movieInfoEl = "";
+var movieListEl = document.getElementById("#movie-titles");
 var ytTrailerEl = "";
 var metaCriticEl = "";
 var fandangoEl = "";

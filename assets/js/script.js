@@ -1,6 +1,6 @@
 var movieListEl = document.getElementById("dropdown-menu");
 var movieChoiceEl = document.getElementsByClassName("dropdown-item");
-var ytTrailerEl = "";
+var ytTrailerEl = document.getElementById("trailer");
 var metaCriticEl = "";
 var fandangoEl = "";
 var movies = {};
@@ -34,5 +34,15 @@ movieListEl.addEventListener("click", function(event) {
     var movie = event.target;
     var movieName = movie.innerHTML;
     document.getElementById("movie-name").innerHTML = "<h2 class='title'>" + movieName + "</h2>";
-    var youtubeUrl = "https://www.googleapis.com/youtube/v3/search"
+    var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=" + movieName + "&key=AIzaSyCSaF4JJUWWEQ-2uEHOdcLW4mVdu4LZtrQ";
+    fetch(youtubeUrl).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                var videos = data;
+                console.log(videos);
+                videoId = videos.items[0].id.videoId;
+                ytTrailerEl.innerHTML = '<iframe class="row" width="400" height="200" src="https://www.youtube.com/embed/' + videoId + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            });
+        }
+    });
 });

@@ -1,8 +1,12 @@
 - css framework (Bulma)
 - API keys
-    - fandango (??)
+    - fandango (u8zdvugbbpe6hs3wzfgjqkt8) Secret:
+gQ4XddvzbC
     - Youtube (AIzaSyCSaF4JJUWWEQ-2uEHOdcLW4mVdu4LZtrQ)
     - Meta Critic (k_sbsit9hk)
     - IMDB (k_v2ym20vp)
 - HTML Layout
 - fetch functions
+    - IMDB for current movies in theaters
+    - youtube for trailers
+    - metacritic for reviews

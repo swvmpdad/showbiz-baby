@@ -4,6 +4,7 @@ var ytTrailerEl = "";
 var metaCriticEl = "";
 var fandangoEl = "";
 var movies = {};
+var zipCode = 77642;
 
 
 var getmovieIntheater = function() {
@@ -14,30 +15,24 @@ var getmovieIntheater = function() {
             response.json().then(function(data) {
                 var movies = data;
                 movieList(movies);
+                console.log(movies);
             });
         }
     });
 };
 
 var movieList = function(movies) {
-    console.log(movies);
     for (var i = 0; i < movies.results.length; i++) {
         console.log(movies.results[i].original_title);
         document.getElementById("movie" + i).textContent = movies.results[i].original_title;
     }
 };
 
-var setClickableOptions = function () {
-    for (var i = 0; i < 20; i++) {
-        var listOption = document.getElementById("movie" + i);
-        document.getElementById("movie" + i).addEventListener("click", displayMovie(listOption));
-    }
-}
-var displayMovie = function(movie) {
-    console.log(movie);
-};
-
-// movieChoiceEl.addEventListener("click", displayMovie(this))
-
 getmovieIntheater();
-setClickableOptions();
+
+movieListEl.addEventListener("click", function(event) {
+    var movie = event.target;
+    var movieName = movie.innerHTML;
+    document.getElementById("movie-name").innerHTML = "<h2 class='title'>" + movieName + "</h2>";
+    var youtubeUrl = "https://www.googleapis.com/youtube/v3/search"
+});

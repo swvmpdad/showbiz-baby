@@ -23,8 +23,12 @@ var getmovieIntheater = function() {
 
 var movieList = function(movies) {
     for (var i = 0; i < movies.results.length; i++) {
+        if (movies.results[i].original_title === "ドラゴンボール超：スーパーヒーロー") {
+            document.getElementById("movie" + i).textContent = "Dragon Ball Super: Super Hero";
+        } else {
         console.log(movies.results[i].original_title);
         document.getElementById("movie" + i).textContent = movies.results[i].original_title;
+        }
     }
 };
 

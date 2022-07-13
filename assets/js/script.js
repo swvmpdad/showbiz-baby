@@ -49,4 +49,21 @@ movieListEl.addEventListener("click", function(event) {
             });
         }
     });
+    var tmdbGetMovieUrl = 
+    "https://api.themoviedb.org/3/movie/now_playing?api_key=f9a508cdd6b59974778c20fc10fe58da&language=en-US&page=1";
+    fetch(tmdbGetMovieUrl).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                var movies = data;
+                for (var i = 0; i < movies.results.length; i++) {
+                    if (movieName === "Dragon Ball Super: Super Hero") {
+                        document.getElementById("movie-desc").textContent = "The Red Ribbon Army, an evil organization that was once destroyed by Goku in the past, has been reformed by a group of people who have created new and mightier Androids, Gamma 1 and Gamma 2, and seek vengeance against Goku and his family.";
+                    }
+                    else if (movieName === movies.results[i].original_title) {
+                        document.getElementById("movie-desc").textContent = movies.results[i].overview;
+                    }
+                }
+            });
+        }
+    });
 });

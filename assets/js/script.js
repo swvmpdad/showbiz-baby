@@ -1,7 +1,7 @@
 var movieListEl = document.getElementById("dropdown-menu");
 var movieChoiceEl = document.getElementsByClassName("dropdown-item");
 var ytTrailerEl = document.getElementById("trailer");
-var metaCriticEl = "";
+var reviewsEl = document.getElementById("reviews");
 var fandangoEl = "";
 var movies = {};
 var zipCode = 77642;
@@ -66,7 +66,9 @@ movieListEl.addEventListener("click", function(event) {
                         fetch(reviewUrl).then(function(response) {
                             if (response.ok) {
                                 response.json().then(function(data) {
-                                    console.log(data);
+                                    var movie = data;
+                                    var review = movie.results[0].content;
+                                    reviewsEl.textContent = review;
                                 });
                             }
                         });

@@ -5,6 +5,8 @@ var metaCriticEl = "";
 var fandangoEl = "";
 var movies = {};
 var zipCode = 77642;
+var movieID = [];
+var voteAverage = [];
 
 
 var getmovieIntheater = function() {
@@ -15,7 +17,6 @@ var getmovieIntheater = function() {
             response.json().then(function(data) {
                 var movies = data;
                 movieList(movies);
-                console.log(movies);
             });
         }
     });
@@ -29,6 +30,10 @@ var movieList = function(movies) {
         console.log(movies.results[i].original_title);
         document.getElementById("movie" + i).textContent = movies.results[i].original_title;
         }
+        movieID.push(movies.results[i].id) //This pulls the id from the movie information
+        voteAverage.push(movies.results[i].vote_average) //This pulls the vote average
+        console.log(voteAverage[i]);
+    
     }
 };
 

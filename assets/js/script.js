@@ -1,7 +1,7 @@
 var movieListEl = document.getElementById("dropdown-menu");
 var movieChoiceEl = document.getElementsByClassName("dropdown-item");
 var ytTrailerEl = document.getElementById("trailer");
-var metaCriticEl = "";
+var reviewsEl = document.getElementById("reviews");
 var fandangoEl = "";
 var movies = {};
 var zipCode = 77642;
@@ -61,6 +61,17 @@ movieListEl.addEventListener("click", function(event) {
                     }
                     else if (movieName === movies.results[i].original_title) {
                         document.getElementById("movie-desc").textContent = movies.results[i].overview;
+                        var movieId = movies.results[i].id;
+                        reviewUrl = "https://api.themoviedb.org/3/movie/" + movieId + "/reviews?api_key=f9a508cdd6b59974778c20fc10fe58da&language=en-US&page=1";
+                        fetch(reviewUrl).then(function(response) {
+                            if (response.ok) {
+                                response.json().then(function(data) {
+                                    var movie = data;
+                                    var review = movie.results[0].content;
+                                    reviewsEl.textContent = review;
+                                });
+                            }
+                        });
                     }
                 }
             });

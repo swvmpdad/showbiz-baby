@@ -7,6 +7,8 @@ var movies = {};
 var zipCode = 77642;
 var movieID = [];
 var voteAverage = [];
+var overView = [];
+
 
 
 var getmovieIntheater = function() {
@@ -32,8 +34,11 @@ var movieList = function(movies) {
         }
         movieID.push(movies.results[i].id) //This pulls the id from the movie information
         voteAverage.push(movies.results[i].vote_average) //This pulls the vote average
+        overView.push(movies.results[i].overview); //Pulls overview
+ 
         console.log(voteAverage[i]);
-    
+        console.log(overView[i]);
+        console.log(movieID[i]);
     }
 };
 

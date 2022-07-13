@@ -61,6 +61,15 @@ movieListEl.addEventListener("click", function(event) {
                     }
                     else if (movieName === movies.results[i].original_title) {
                         document.getElementById("movie-desc").textContent = movies.results[i].overview;
+                        var movieId = movies.results[i].id;
+                        reviewUrl = "https://api.themoviedb.org/3/movie/" + movieId + "/reviews?api_key=f9a508cdd6b59974778c20fc10fe58da&language=en-US&page=1";
+                        fetch(reviewUrl).then(function(response) {
+                            if (response.ok) {
+                                response.json().then(function(data) {
+                                    console.log(data);
+                                });
+                            }
+                        });
                     }
                 }
             });

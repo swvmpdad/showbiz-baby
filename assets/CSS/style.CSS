@@ -1,13 +1,13 @@
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: darkblue;
-}
-
 header {
     margin: 50px;
 }
 
-.page-title {
+body {
+    font-family: Arial, Helvetica, sans-serif;
+     background-color: darkblue;
+}
+
+.title {
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -15,3 +15,15 @@ header {
     border-radius: 15px;
     color: yellow;
 }
+
+.subtitle {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: yellow
+}
+
+.subtitle.strong {
+    color: yellow;
+}
+

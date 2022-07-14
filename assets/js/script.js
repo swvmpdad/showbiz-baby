@@ -5,10 +5,8 @@ var metaCriticEl = "";
 var fandangoEl = "";
 var movies = {};
 var zipCode = 77642;
-var movieID = [];
-var voteAverage = [];
-var overView = [];
-
+var returnedMovies = [];
+var returnedMoviesAverage = [];
 
 
 var getmovieIntheater = function() {
@@ -19,6 +17,10 @@ var getmovieIntheater = function() {
             response.json().then(function(data) {
                 var movies = data;
                 movieList(movies);
+                movieID(movies);
+                movieNameNew(movies, returnedMovies);
+                movieOverView(movies);
+                movieAverage(movies, returnedMoviesAverage);
             });
         }
     });
@@ -29,23 +31,52 @@ var movieList = function(movies) {
         if (movies.results[i].original_title === "ドラゴンボール超：スーパーヒーロー") {
             document.getElementById("movie" + i).textContent = "Dragon Ball Super: Super Hero";
         } else {
-        console.log(movies.results[i].original_title);
-        document.getElementById("movie" + i).textContent = movies.results[i].original_title;
-        }
-        movieID.push(movies.results[i].id) //This pulls the id from the movie information
-        voteAverage.push(movies.results[i].vote_average) //This pulls the vote average
-        overView.push(movies.results[i].overview); //Pulls overview
- 
-        console.log(voteAverage[i]);
-        console.log(overView[i]);
-        console.log(movieID[i]);
+            document.getElementById("movie" + i).textContent = movies.results[i].original_title;
+        } 
     }
 };
+
+var movieID = function(movies){
+    var id = []
+    for (var i = 0; i < movies.results.length; i++) {
+        id.push(movies.results[i].id) //This pulls the id from the movie information
+        // console.log(id[i]);
+    };
+};
+
+var movieOverView = function(movies){
+    var overView = []
+    for (var i = 0; i < movies.results.length; i++) {
+        overView.push(movies.results[i].overview); //Pulls overview
+        // console.log(overView[i]);
+    };
+};
+
+var movieNameNew = function(movies, movieNameNewList){
+    for (var i = 0; i < movies.results.length; i++) {
+        if (movies.results[i].original_title === "ドラゴンボール超：スーパーヒーロー") {
+            movieNameNewList.push("Dragon Ball Super: Super Hero")
+        } else {
+            movieNameNewList.push(movies.results[i].original_title)
+        }
+        // console.log(movieNameNewList[i]);
+    };
+};
+
+var movieAverage = function(movies, voteAverage){
+    for (var i = 0; i < movies.results.length; i++) {
+        voteAverage.push(movies.results[i].vote_average) //This pulls the vote average
+        // console.log(voteAverage[i]);
+    };
+}
 
 getmovieIntheater();
 
 movieListEl.addEventListener("click", function(event) {
     var movie = event.target;
+    // console.log(movie);
+    indexNumber =returnedMovies.indexOf(movie.innerHTML);
+    console.log(returnedMoviesAverage[indexNumber]);
     var movieName = movie.innerHTML;
     document.getElementById("movie-name").innerHTML = "<h2 class='title'>" + movieName + "</h2>";
     var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=" + movieName + "&key=AIzaSyCSaF4JJUWWEQ-2uEHOdcLW4mVdu4LZtrQ";
@@ -60,3 +91,5 @@ movieListEl.addEventListener("click", function(event) {
         }
     });
 });
+
+console.log(returnedMovies);

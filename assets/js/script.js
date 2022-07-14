@@ -14,7 +14,6 @@ var getmovieIntheater = function() { //function to get the list of movies curren
             response.json().then(function(data) {
                 var movies = data;
                 movieNameNew(movies, returnedMoviesName);
-                // movieOverView(movies, returnedMovieOverview);
                 movieAverage(movies, returnedMoviesAverage);
                 movieList(movies); //sending the list to the dropdown menu function
                 console.log(movies);
@@ -32,12 +31,6 @@ var movieList = function(movies) { // adds the names of the movies to the dropdo
         } 
     }
 };
-
-// var movieOverView = function(movies, overView){
-//     for (var i = 0; i < movies.results.length; i++) {
-//         overView.push(movies.results[i].overview); //Pulls overview
-//     };
-// };
 
 var movieNameNew = function(movies, movieNameNewList){
     for (var i = 0; i < movies.results.length; i++) {
@@ -59,12 +52,10 @@ getmovieIntheater();
 
 movieListEl.addEventListener("click", function(event) { // the event listener for when one of the movies is selected
     var movie = event.target;
-    // console.log(movie);
     indexNumber =returnedMoviesName.indexOf(movie.innerHTML);
     var movieName = movie.innerHTML;
-    document.getElementById("movie-name").innerHTML = "<h2 class='title'>" + movieName + "</h2>";
+    document.getElementById("movie-name").innerHTML = "<h2 class='title bottom-border'>" + movieName + "</h2>";
     document.getElementById("movie-ratings-h2").innerHTML = "RATING: " + returnedMoviesAverage[indexNumber];
-    // document.getElementById("movie-overview-h2").innerHTML = "SYNOPSIS: " + returnedMovieOverview[indexNumber];
     var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=" + movieName + "&key=AIzaSyCSaF4JJUWWEQ-2uEHOdcLW4mVdu4LZtrQ";
     fetch(youtubeUrl).then(function(response) { // function to fetch and display the youtube video
         if (response.ok) {
@@ -84,9 +75,11 @@ movieListEl.addEventListener("click", function(event) { // the event listener fo
                 var movies = data;
                 for (var i = 0; i < movies.results.length; i++) { // function to display the movie overview
                     if (movieName === "Dragon Ball Super: Super Hero") {
+                        document.getElementById("movie-desc").className = "card has-background-white-ter column is-align-content-center subtitle"
                         document.getElementById("movie-desc").textContent = "The Red Ribbon Army, an evil organization that was once destroyed by Goku in the past, has been reformed by a group of people who have created new and mightier Androids, Gamma 1 and Gamma 2, and seek vengeance against Goku and his family.";
                     }
                     else if (movieName === movies.results[i].original_title) {
+                        document.getElementById("movie-desc").className = "card has-background-white-ter column is-align-content-center subtitle"
                         document.getElementById("movie-desc").textContent = movies.results[i].overview;
                         var movieId = movies.results[i].id;
                         reviewUrl = "https://api.themoviedb.org/3/movie/" + movieId + "/reviews?api_key=f9a508cdd6b59974778c20fc10fe58da&language=en-US&page=1";
@@ -96,6 +89,7 @@ movieListEl.addEventListener("click", function(event) { // the event listener fo
                                     var movie = data;
                                     console.log(movie);
                                     reviewTitleEl.textContent = "Movie Reviews"
+                                    reviewTitleEl.className = "column title is-align-content-center has-text-weight-bold bottom-border";
                                     document.getElementById("reviewer0").textContent = ""; // resetting the elements in case of fewer than 4 reviews
                                     document.getElementById("reviewer1").textContent = "";
                                     document.getElementById("reviewer2").textContent = "";

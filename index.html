@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="has-background-link-dark has-text-warning">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,16 +7,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/CSS/style.CSS">
   </head>
-  <body class="has-background-link-dark has-text-warning">
+  <body>
   <section class="movies">
     <div class="container">
-      <h1 class="title is-underlined">
-        Showbiz Baby
-      </h1>
-      <h2 class="Instruction has-text-centered">  Make a selection below and get the latest scoop on Today's <strong class="has-text-warning">HOTTEST</strong> movies!
-      </h2>
       <p class="subtitle is-fullwidth">
-        <img src="./assets/ShowbizBabyLogo.png" />
+        <img width="20%" height="30%" src="./assets/ShowbizBabyLogo.png" /></p>
+      <h2 class="Instruction has-text-centered">  Make a selection below and get the latest scoop on Today's <strong>HOTTEST</strong> movies!
+      </h2>
+
       
       <div class="dropdown is-hoverable">
         <div class="dropdown-trigger">
@@ -96,34 +94,36 @@
   </section>
   <section class="movie-info">
     <div class="column is-align-content-center">
-        <div class="column is-align-content-center is-underlined has-text-weight-bold" id="movie-name">
+        <div class="column is-align-content-center has-text-weight-bold" id="movie-name">
 
         </div>
 
         <div class = "column" id = "movie-ratings">
           <h2 class="subtitle" id = "movie-ratings-h2"></h2>
         </div>
-          
-        <div class="column is-align-content-center subtitle" id="movie-desc">
-
+         <div class="columns"> 
+          <div class="column is-one-third"></div>
+           <div class="" id="movie-desc">
+         </div>
+         <div class="column is-one-third"></div>
         </div>
         <div class="columns is-align-content-center" id="trailer-container">
           <div class="column"></div><div class="column" id="trailer"></div><div class="column"></div>
         </div>
         <div class="column is-align-content-center" id="review">
-          <h1 class="title column is-underlined" id="review-title"></h1>
-          <h2 class="subtitle has-text-weight-light" id="reviewer0"></h2>
-          <p id="reviews0"></p>
-          <h2 class="subtitle" id="reviewer1"></h2>
-          <p id="reviews1"></p>
-          <h2 class="subtitle" id="reviewer2"></h2>
-          <p id="reviews2"></p>
-          <h2 class="subtitle" id="reviewer3"></h2>
-          <p id="reviews3"></p>
+          <h1 class="title column" id="review-title"></h1>
+          <h2 class="subtitle reviewer" id="reviewer0"></h2>
+          <p class="card has-background-white-ter" id="reviews0"></p>
+          <h2 class="subtitle reviewer" id="reviewer1"></h2>
+          <p class="card has-background-white-ter" id="reviews1"></p>
+          <h2 class="subtitle reviewer" id="reviewer2"></h2>
+          <p class="card has-background-white-ter" id="reviews2"></p>
+          <h2 class="subtitle reviewer" id="reviewer3"></h2>
+          <p class="card has-background-white-ter" id="reviews3"></p>
         </div>
       </div>
   </section>
-<footer class="has-text-warning is-underlined">
+<footer>
   <p class="footer-p">Made with love by swvmpdad, AhmadMHanif7, and WeWantSomeMo</p>
 </footer>
 

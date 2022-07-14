@@ -1,21 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/CSS/style.CSS" />
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Showbiz Baby</title>
-</head>
-<body>
-    <header>
-        <h1 class="page-title">SHOWBIZ</h1>
-    </header>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/CSS/style.CSS">
+  </head>
+  <body>
+  <section class="movies">
+    <div class="container">
+      <p class="subtitle is-fullwidth">
+        <img width="20%" height="30%" src="./assets/ShowbizBabyLogo.png" /></p>
+      <h2 class="Instruction has-text-centered">  Make a selection below and get the latest scoop on Today's <strong>HOTTEST</strong> movies!
+      </h2>
 
-    <main>
-        
-    </main>
+      
+      <div class="dropdown is-hoverable">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span>Select A Movie</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a id="movie0" class="dropdown-item">
+              
+            </a>
+            <a id="movie1" class="dropdown-item">
+              
+            </a>
+            <a id="movie2" class="dropdown-item">
+              
+            </a>
+            <a id="movie3" class="dropdown-item">
+              
+            </a>
+            <a id="movie4" class="dropdown-item">
+                
+            </a>
+            <a id="movie5" class="dropdown-item">
+                
+            </a>
+            <a id="movie6" class="dropdown-item">
+              
+            </a>
+            <a id="movie7" class="dropdown-item">
+                
+            </a>
+            <a id="movie8" class="dropdown-item">
+                
+            </a>
+            <a id="movie9" class="dropdown-item">
+                
+            </a>
+            <a id="movie10" class="dropdown-item">
+                
+            </a>
+            <a id="movie11" class="dropdown-item">
+              
+            </a>
+            <a id="movie12" class="dropdown-item">
+              
+            </a>
+            <a id="movie13" class="dropdown-item">
+              
+            </a>
+            <a id="movie14" class="dropdown-item">
+              
+            </a>
+            <a id="movie15" class="dropdown-item">
+              
+            </a>
+            <a id="movie16" class="dropdown-item">
+              
+            </a>
+            <a id="movie17" class="dropdown-item">
+              
+            </a>
+            <a id="movie18" class="dropdown-item">
+              
+            </a>
+            <a id="movie19" class="dropdown-item">
+              
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="movie-info">
+    <div class="column is-align-content-center">
+        <div class="column is-align-content-center has-text-weight-bold" id="movie-name">
 
-    <script src="./assets/js/script.js"></script>
+        </div>
+
+        <div class = "column" id = "movie-ratings">
+          <h2 class="subtitle" id = "movie-ratings-h2"></h2>
+        </div>
+         <div class="columns"> 
+          <div class="column is-one-third"></div>
+           <div class="" id="movie-desc">
+         </div>
+         <div class="column is-one-third"></div>
+        </div>
+        <div class="columns is-align-content-center" id="trailer-container">
+          <div class="column"></div><div class="column" id="trailer"></div><div class="column"></div>
+        </div>
+        <div class="column is-align-content-center" id="review">
+          <h1 class="title column" id="review-title"></h1>
+          <h2 class="subtitle reviewer" id="reviewer0"></h2>
+          <p class="card has-background-white-ter" id="reviews0"></p>
+          <h2 class="subtitle reviewer" id="reviewer1"></h2>
+          <p class="card has-background-white-ter" id="reviews1"></p>
+          <h2 class="subtitle reviewer" id="reviewer2"></h2>
+          <p class="card has-background-white-ter" id="reviews2"></p>
+          <h2 class="subtitle reviewer" id="reviewer3"></h2>
+          <p class="card has-background-white-ter" id="reviews3"></p>
+        </div>
+      </div>
+  </section>
+<footer>
+  <p class="footer-p">Made with love by swvmpdad, AhmadMHanif7, and WeWantSomeMo</p>
+</footer>
+
+<script src="./assets/js/script.js"></script>
 </body>
+
 </html>

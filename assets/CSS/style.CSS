@@ -1,17 +1,36 @@
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: darkblue;
-}
-
 header {
     margin: 50px;
 }
 
-.page-title {
+body {
+    font-family: Arial, Helvetica, sans-serif;
+     background-color: darkblue;
+}
+
+.title {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: solid 5px gold;
-    border-radius: 15px;
     color: yellow;
+}
+
+.subtitle {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: yellow
+}
+
+p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-p {
+    color: goldenrod;
+    border-top: 2px solid goldenrod;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    text-align: center;
 }

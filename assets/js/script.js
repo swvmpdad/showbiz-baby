@@ -14,7 +14,7 @@ var getmovieIntheater = function() { //function to get the list of movies curren
             response.json().then(function(data) {
                 var movies = data;
                 movieNameNew(movies, returnedMoviesName);
-                movieOverView(movies, returnedMovieOverview);
+                // movieOverView(movies, returnedMovieOverview);
                 movieAverage(movies, returnedMoviesAverage);
                 movieList(movies); //sending the list to the dropdown menu function
                 console.log(movies);
@@ -33,11 +33,11 @@ var movieList = function(movies) { // adds the names of the movies to the dropdo
     }
 };
 
-var movieOverView = function(movies, overView){
-    for (var i = 0; i < movies.results.length; i++) {
-        overView.push(movies.results[i].overview); //Pulls overview
-    };
-};
+// var movieOverView = function(movies, overView){
+//     for (var i = 0; i < movies.results.length; i++) {
+//         overView.push(movies.results[i].overview); //Pulls overview
+//     };
+// };
 
 var movieNameNew = function(movies, movieNameNewList){
     for (var i = 0; i < movies.results.length; i++) {
@@ -64,7 +64,7 @@ movieListEl.addEventListener("click", function(event) { // the event listener fo
     var movieName = movie.innerHTML;
     document.getElementById("movie-name").innerHTML = "<h2 class='title'>" + movieName + "</h2>";
     document.getElementById("movie-ratings-h2").innerHTML = "RATING: " + returnedMoviesAverage[indexNumber];
-    document.getElementById("movie-overview-h2").innerHTML = "SYNOPSIS: " + returnedMovieOverview[indexNumber];
+    // document.getElementById("movie-overview-h2").innerHTML = "SYNOPSIS: " + returnedMovieOverview[indexNumber];
     var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=" + movieName + "&key=AIzaSyCSaF4JJUWWEQ-2uEHOdcLW4mVdu4LZtrQ";
     fetch(youtubeUrl).then(function(response) { // function to fetch and display the youtube video
         if (response.ok) {

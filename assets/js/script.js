@@ -1,8 +1,10 @@
 var movieListEl = document.getElementById("dropdown-menu");
 var movieChoiceEl = document.getElementsByClassName("dropdown-item");
 var ytTrailerEl = document.getElementById("trailer");
+var returnedMoviesName = [];
+var returnedMoviesAverage = [];
+var returnedMovieOverview = [];
 var reviewTitleEl = document.getElementById("review-title");
-
 
 var getmovieIntheater = function() { //function to get the list of movies currently playing
     var tmdbGetMovieUrl = 
@@ -11,6 +13,9 @@ var getmovieIntheater = function() { //function to get the list of movies curren
         if (response.ok) {
             response.json().then(function(data) {
                 var movies = data;
+                movieNameNew(movies, returnedMoviesName);
+                // movieOverView(movies, returnedMovieOverview);
+                movieAverage(movies, returnedMoviesAverage);
                 movieList(movies); //sending the list to the dropdown menu function
                 console.log(movies);
             });
@@ -23,18 +28,43 @@ var movieList = function(movies) { // adds the names of the movies to the dropdo
         if (movies.results[i].original_title === "ドラゴンボール超：スーパーヒーロー") {
             document.getElementById("movie" + i).textContent = "Dragon Ball Super: Super Hero"; // had to create an if statement for Dragon Ball Super: Superhero
         } else {
-        console.log(movies.results[i].original_title);
-        document.getElementById("movie" + i).textContent = movies.results[i].original_title;
-        }
+            document.getElementById("movie" + i).textContent = movies.results[i].original_title;
+        } 
     }
 };
+
+// var movieOverView = function(movies, overView){
+//     for (var i = 0; i < movies.results.length; i++) {
+//         overView.push(movies.results[i].overview); //Pulls overview
+//     };
+// };
+
+var movieNameNew = function(movies, movieNameNewList){
+    for (var i = 0; i < movies.results.length; i++) {
+        if (movies.results[i].original_title === "ドラゴンボール超：スーパーヒーロー") {
+            movieNameNewList.push("Dragon Ball Super: Super Hero")
+        } else {
+            movieNameNewList.push(movies.results[i].original_title)
+        }
+    };
+};
+
+var movieAverage = function(movies, voteAverage){
+    for (var i = 0; i < movies.results.length; i++) {
+        voteAverage.push(movies.results[i].vote_average) //This pulls the vote average
+    };
+}
 
 getmovieIntheater();
 
 movieListEl.addEventListener("click", function(event) { // the event listener for when one of the movies is selected
     var movie = event.target;
+    // console.log(movie);
+    indexNumber =returnedMoviesName.indexOf(movie.innerHTML);
     var movieName = movie.innerHTML;
     document.getElementById("movie-name").innerHTML = "<h2 class='title'>" + movieName + "</h2>";
+    document.getElementById("movie-ratings-h2").innerHTML = "RATING: " + returnedMoviesAverage[indexNumber];
+    // document.getElementById("movie-overview-h2").innerHTML = "SYNOPSIS: " + returnedMovieOverview[indexNumber];
     var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=" + movieName + "&key=AIzaSyCSaF4JJUWWEQ-2uEHOdcLW4mVdu4LZtrQ";
     fetch(youtubeUrl).then(function(response) { // function to fetch and display the youtube video
         if (response.ok) {
